@@ -21,7 +21,7 @@ const DetailsComponent = () => {
       time: "9:45 AM - 11:15 AM",
       description:
         "A paper presentation event where innovators showcase their research and breakthrough ideas.",
-      photoURL: "/assets/images/miguel-bg.jpeg",
+      photoURL: "/assets/mini-posters/collaider.png",
       url: "https://forms.gle/Xg1btLowaikSGE79A",
       guidelineURL: "/assets/guidelines/paper-presentations.pdf",
     },
@@ -31,7 +31,7 @@ const DetailsComponent = () => {
       time: "1:30 PM - 2:30 PM",
       description:
         "Test your technical knowledge in this challenging and engaging quiz competition.",
-      photoURL: "/assets/images/miguel-bg.jpeg",
+      photoURL: "/assets/mini-posters/quest.png",
 
       url: "https://forms.gle/4YFDfV7nK77vmg5TA",
       guidelineURL: "/assets/guidelines/tech-quiz.pdf",
@@ -42,7 +42,7 @@ const DetailsComponent = () => {
       time: "1:30 PM - 2:45 PM",
       description:
         "A fun-filled event of technical charades where teams guess tech-related terms through clues.",
-      photoURL: "/assets/images/miguel-bg.jpeg",
+      photoURL: "/assets/mini-posters/guess.jpg",
 
       url: "https://forms.gle/eGPQkQKH4avibKkH8",
       guidelineURL: "/assets/guidelines/tech-charade.pdf",
@@ -53,7 +53,7 @@ const DetailsComponent = () => {
       time: "12:00 PM - 1:00 PM",
       description:
         "A creative event where participants showcase their skills by creating technical memes.",
-      photoURL: "/assets/images/miguel-bg.jpeg",
+      photoURL: "/assets/mini-posters/meme.png",
 
       url: "https://forms.gle/XYCRLJT5YBJYiaF6A",
       guidelineURL: "/assets/guidelines/meme-event.pdf",
@@ -64,7 +64,7 @@ const DetailsComponent = () => {
       time: "11:00 AM - 12:30 PM",
       description:
         "Partner up and compete to debug code in real-time, racing against the clock.",
-      photoURL: "/assets/images/miguel-bg.jpeg",
+      photoURL: "/assets/mini-posters/code-swing.png",
 
       url: "https://forms.gle/PmgZaYbDxeumco359",
       guidelineURL: "/assets/guidelines/coding-partners.pdf",
@@ -76,7 +76,7 @@ const DetailsComponent = () => {
       time: "12:00 PM - 1:30 PM",
       description:
         "Embark on a thrilling treasure hunt, deciphering clues and solving puzzles to uncover the prize.",
-      photoURL: "/assets/images/miguel-bg.jpeg",
+      photoURL: "/assets/mini-posters/hunt.png",
 
       url: "https://forms.gle/Mwikzt8cJCnFeSjAA",
       guidelineURL: "/assets/guidelines/treasure-hunt.pdf",
@@ -87,7 +87,7 @@ const DetailsComponent = () => {
       time: "1:15 PM - 2:45 PM",
       description:
         "A networking event where participants connect the dots through interactive activities.",
-      photoURL: "/assets/images/miguel-bg.jpeg",
+      photoURL: "/assets/mini-posters/link.png",
 
       url: "https://forms.gle/yfpXuE4tLBakX7db9",
       guidelineURL: "/assets/guidelines/tech-conn.pdf",
@@ -98,7 +98,7 @@ const DetailsComponent = () => {
       time: "10:15 AM - 11:15 AM",
       description:
         "Dive into the world of AI and see how creative you can get with generating AI prompts.",
-      photoURL: "/assets/images/miguel-bg.jpeg",
+      photoURL: "/assets/mini-posters/prompt.jpg",
 
       url: "https://forms.gle/3ruFDPs5pptwhRrR9",
       guidelineURL: "/assets/guidelines/ai-prompts.pdf",
