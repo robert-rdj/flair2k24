@@ -15,6 +15,7 @@ const space_grotesk = Space_Grotesk({
 const Page = () => {
   const [isVideoEnded, setIsVideoEnded] = useState(false);
   const detailsRef = useRef(null); // Create a ref for the DetailsComponent
+  const promoVideoRef = useRef(null);
   const [loading, setLoading] = useState(null);
 
   useEffect(() => {
@@ -25,6 +26,27 @@ const Page = () => {
     } else {
       setLoading(false);
     }
+  }, []);
+
+  useEffect(() => {
+    const video = promoVideoRef.current;
+
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(video);
+
+    return () => observer.disconnect();
   }, []);
 
   const text =
@@ -113,6 +135,21 @@ const Page = () => {
       {/* DetailsComponent with ref */}
       <div ref={detailsRef}>
         <DetailsComponent />
+      </div>
+
+      <div className="bg-white py-10 px-0">
+        <video
+          id="promo-video"
+          ref={promoVideoRef}
+          controls
+          loop
+          playsInline
+          poster="/assets/images/miles-eyes.jpeg"
+          className="mx-auto aspect-video w-full max-w-7xl object-cover"
+        >
+          <source src="/assets/videos/promo.webm" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       <div className="flex justify-center items-center flex-col bg-white py-10">
