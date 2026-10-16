@@ -1,76 +1,67 @@
-"use client";
+import Image from "next/image";
 
-import { useState, useEffect } from "react";
-
-import TitleList from "@/components/TitleList";
-import Carousel from "@/components/carousel";
-
-const cardsData = [
-  {
-    title: "QUANTUM QUEST",
-    img: "/assets/card-bg-1.jpg",
-    description: "Sample Description",
-  },
-  {
-    title: "COLLIDER CONCLAVE",
-    img: "/assets/card-bg-1.jpg",
-    description: "Sample Description",
-  },
-  {
-    title: "GLITCHVERSE GUESS",
-    img: "/assets/card-bg-1.jpg",
-    description: "Sample Description",
-  },
-  {
-    title: "SINISTER HUNT",
-    img: "/assets/card-bg-1.jpg",
-    description: "Sample Description",
-  },
-  {
-    title: "CODE SWING DUO",
-    img: "/assets/card-bg-1.jpg",
-    description: "Sample Description",
-  },
-  {
-    title: "INTO THE MEMEVERSE",
-    img: "/assets/card-bg-1.jpg",
-    description: "Sample Description",
-  },
-  {
-    title: "MULTIVERSAL LINK UP",
-    img: "/assets/card-bg-1.jpg",
-    description: "Sample Description",
-  },
-  {
-    title: "SPIDEY PROMPTS",
-    img: "/assets/card-bg-1.jpg",
-    description: "Sample Description",
-  },
+const posters = [
+	{ src: "/assets/posters/spidey_prompts.webp", title: "Spidey Prompts" },
+	{ src: "/assets/posters/sinister_hunt.webp", title: "Sinister Hunt" },
+	{ src: "/assets/posters/quantum_quest.webp", title: "Quantum Quest" },
+	{ src: "/assets/posters/multiversal_linkup.webp", title: "Multiversal Linkup" },
+	{ src: "/assets/posters/collider_conclave.webp", title: "Collider Conclave" },
+	{ src: "/assets/posters/code_swing.webp", title: "Code Swing" },
+	{ src: "/assets/posters/glitch_verse_guess.webp", title: "Glitch Verse Guess" },
+	{ src: "/assets/posters/into_the_memeverse.webp", title: "Into the Memeverse" },
 ];
 
-const Page = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  return (
-    <div className="border flex h-screen pt-[100px]">
-      {/* Left side: Title List */}
-      <div className="border w-1/2 h-full flex flex-col items-start p-4">
-        <h1 className="text-center text-5xl mx-14 my-4 font-sans items-center">
-          EVENTS
-        </h1>
-        <TitleList
-          titles={cardsData.map((card) => card.title)}
-          currentIndex={currentIndex}
-          setCurrentIndex={setCurrentIndex}
-        />
-      </div>
-
-      {/* Right side: Carousel */}
-      <div className="w-2/3 flex justify-center items-center">
-        <Carousel cards={cardsData} currentIndex={currentIndex} />
-      </div>
-    </div>
-  );
+export const metadata = {
+	title: "Events | Flair 2k24",
 };
 
-export default Page;
+export default function EventsPage() {
+	return (
+		<main className="min-h-screen bg-black px-5 pb-20 pt-32 text-white sm:px-10 lg:px-16">
+			<header className="mx-auto mb-14 max-w-7xl border-b border-white/30 pb-8">
+				<p className="mb-4 text-sm uppercase tracking-[0.35em] text-white/60">
+					Flair IT 2k24
+				</p>
+				<div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+					<h1 className="text-6xl uppercase leading-[0.85] sm:text-8xl lg:text-9xl">
+						Events
+					</h1>
+					<p className="max-w-xs font-sans text-sm leading-relaxed text-white/60">
+						Explore the challenges, showcases, and experiences waiting in the
+						Spider-Verse.
+					</p>
+				</div>
+			</header>
+
+			<section
+				aria-label="Event posters"
+				className="mx-auto grid max-w-6xl grid-cols-1 gap-y-14"
+			>
+				{posters.map((poster, index) => (
+					<article
+						key={poster.src}
+						className="group"
+					>
+						<div className="relative aspect-video overflow-hidden bg-white/10">
+							<Image
+								src={poster.src}
+								alt={`${poster.title} event poster`}
+								fill
+								priority={index < 4}
+								sizes="(min-width: 1024px) 1200px, 100vw"
+								className="object-contain transition duration-500 ease-out group-hover:scale-105"
+							/>
+							<div className="absolute inset-0 bg-black/0 transition duration-500 group-hover:bg-black/20" />
+						</div>
+						<div className="flex items-center justify-between border-b border-white/30 py-4">
+							<h2 className="text-xl uppercase tracking-wide">{poster.title}</h2>
+							<span className="font-sans text-xs text-white/50">
+								{String(index + 1).padStart(2, "0")}
+							</span>
+						</div>
+					</article>
+				))}
+			</section>
+		</main>
+	);
+}
