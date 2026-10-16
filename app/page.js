@@ -151,7 +151,7 @@ const Page = () => {
           Your browser does not support the video tag.
         </video>
       </div>
-
+      {/* Sponsors Section */}
       <div className="flex justify-center items-center flex-col bg-white py-10">
         <p className="text-7xl text-black"> OUR SPONSERS </p>
 
