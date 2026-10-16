@@ -17,16 +17,16 @@ export const metadata = {
 
 export default function EventsPage() {
 	return (
-		<main className="min-h-screen bg-black px-5 pb-20 pt-32 text-white sm:px-10 lg:px-16">
-			<header className="mx-auto mb-14 max-w-7xl border-b border-white/30 pb-8">
-				<p className="mb-4 text-sm uppercase tracking-[0.35em] text-white/60">
+		<main className="min-h-screen bg-white px-5 pb-20 pt-32 text-black sm:px-10 lg:px-16">
+			<header className="mx-auto mb-14 max-w-7xl border-b border-black/15 pb-8">
+				<p className="mb-4 text-sm uppercase tracking-[0.35em] text-black/55">
 					Flair IT 2k24
 				</p>
 				<div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
 					<h1 className="text-6xl uppercase leading-[0.85] sm:text-8xl lg:text-9xl">
 						Events
 					</h1>
-					<p className="max-w-xs font-sans text-sm leading-relaxed text-white/60">
+					<p className="max-w-xs font-sans text-sm leading-relaxed text-black/60">
 						Explore the challenges, showcases, and experiences waiting in the
 						Spider-Verse.
 					</p>
@@ -42,7 +42,7 @@ export default function EventsPage() {
 						key={poster.src}
 						className="group"
 					>
-						<div className="relative aspect-video overflow-hidden bg-white/10">
+						<div className="relative aspect-video overflow-hidden bg-black/[0.03]">
 							<Image
 								src={poster.src}
 								alt={`${poster.title} event poster`}
@@ -51,11 +51,11 @@ export default function EventsPage() {
 								sizes="(min-width: 1024px) 1200px, 100vw"
 								className="object-contain transition duration-500 ease-out group-hover:scale-105"
 							/>
-							<div className="absolute inset-0 bg-black/0 transition duration-500 group-hover:bg-black/20" />
+							<div className="absolute inset-0 bg-black/0 transition duration-500" />
 						</div>
-						<div className="flex items-center justify-between border-b border-white/30 py-4">
+						<div className="flex items-center justify-between border-b border-black/15 py-4">
 							<h2 className="text-xl uppercase tracking-wide">{poster.title}</h2>
-							<span className="font-sans text-xs text-white/50">
+							<span className="font-sans text-xs text-black/50">
 								{String(index + 1).padStart(2, "0")}
 							</span>
 						</div>

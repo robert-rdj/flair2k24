@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { MdClose } from 'react-icons/md';
 import { RiMenu3Fill } from "react-icons/ri";
 import { motion } from "framer-motion";
@@ -19,6 +20,8 @@ const Navbar = ({ className }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPromoVideoVisible, setIsPromoVideoVisible] = useState(false);
+  const pathname = usePathname();
+  const isEventsRoute = pathname === "/events";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,19 +61,19 @@ const Navbar = ({ className }) => {
       animate={{ opacity: isPromoVideoVisible ? 0 : 1 }}
       exit={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className={`fixed w-full z-20 flex flex-col justify-center px-5 sm:py-2 bg-black sm:bg-transparent ${isPromoVideoVisible ? "pointer-events-none" : ""} ${className}`}
+      className={`fixed w-full z-20 flex flex-col justify-center px-5 sm:py-2 ${isEventsRoute ? "bg-transparent" : "bg-black sm:bg-transparent"} ${isPromoVideoVisible ? "pointer-events-none" : ""} ${className}`}
     >
       <div
-        className={`flex justify-between sm:px-10 items-center rounded-lg py-3 ${isScrolled ? "bg-black" : ""
+        className={`flex justify-between sm:px-10 items-center rounded-lg py-3 ${isScrolled && !isEventsRoute ? "bg-black" : ""
           }`}
       >
         <Image src="/assets/images/licet-logo.png" height={60} width={60} />
-        <div className={`sm:flex justify-evenly items-center gap-10 text-sm hidden `}>
+        <div className={`sm:flex justify-evenly items-center gap-10 text-sm hidden ${isEventsRoute ? "text-black" : ""}`}>
           <div>
-            <a href="#">Home</a>
+            <a href="/">Home</a>
           </div>
           <div>
-            <a href="#">Events</a>
+            <a href="/events">Events</a>
           </div>
           <div>
             <a href="#">Contact</a>
