@@ -87,8 +87,8 @@ const Footer = () => {
           <h4 className="text-lg  mb-4 tracking-widest">Contact Us</h4>
           <div className={space_grotesk.className}>
             <p className="tracking-widest">COORDINATORS</p>
-            <p className="text-sm mt-2">Divyakrishnan R : +91 99406 39989</p>
-            <p className="text-sm ">Guru Keerthi : +91 80560 39970</p>
+            <p className="text-sm mt-2">Divyakrishnan R</p>
+            <p className="text-sm ">Guru Keerthi</p>
             <p className="tracking-widest mt-5">MAIL US</p>
 
             <a

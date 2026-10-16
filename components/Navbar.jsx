@@ -18,6 +18,7 @@ const space_grotesk = Space_Grotesk({
 const Navbar = ({ className }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isPromoVideoVisible, setIsPromoVideoVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,13 +37,28 @@ const Navbar = ({ className }) => {
     };
   }, []);
 
+  useEffect(() => {
+    const promoVideo = document.getElementById("promo-video");
+
+    if (!promoVideo) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsPromoVideoVisible(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+
+    observer.observe(promoVideo);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      animate={{ opacity: isPromoVideoVisible ? 0 : 1 }}
       exit={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className={`fixed w-full z-20 flex flex-col justify-center px-5 sm:py-2 bg-black sm:bg-transparent ${className}`}
+      className={`fixed w-full z-20 flex flex-col justify-center px-5 sm:py-2 bg-black sm:bg-transparent ${isPromoVideoVisible ? "pointer-events-none" : ""} ${className}`}
     >
       <div
         className={`flex justify-between sm:px-10 items-center rounded-lg py-3 ${isScrolled ? "bg-black" : ""
